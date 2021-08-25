@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 
+import MyContext from "./components/Context";
+import Wrapper from "./components/Wrapper";
+
+// Способ 1. Контекст для функциональной архитектуры
+// Способ 2. Контекст для классовой архитектуры
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <MyContext.Provider value={
+                {
+                    name: 'Ivan',
+                    age: 30
+                }
+            }>
+                <Wrapper />
+            </MyContext.Provider>
+
+        </div>
+    );
 }
 
 export default App;
